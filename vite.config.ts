@@ -63,6 +63,7 @@ export default defineConfig({
       "@lib": path.resolve(__dirname, "lib"),
       "@data": path.resolve(__dirname, "data"),
       "generator:benefits": path.resolve(__dirname, "data/all.js"),
+      "generator:institutions": path.resolve(__dirname, "data/all.js"),
     },
   },
   define: {
