@@ -19,7 +19,14 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
+      external: ['node:fs', 'fs', 'path', 'url'],
       output: {
+        globals: {
+          'node:fs': 'fs',
+          'fs': 'fs',
+          'path': 'path',
+          'url': 'url'
+        },
         assetFileNames: (assetInfo) => {
           const extension = (assetInfo.name || "").match(/.*\.([a-z0-9]*)$/i)
           if (extension && extension[1]) {
@@ -64,6 +71,13 @@ export default defineConfig({
       "@data": path.resolve(__dirname, "data"),
       "generator:benefits": path.resolve(__dirname, "data/all.js"),
       "generator:institutions": path.resolve(__dirname, "data/all.js"),
+      "generator:*": path.resolve(__dirname, "data/all.js"),
+      "lodash-es": path.resolve(__dirname, "node_modules/lodash/lodash.js"),
+      "lodash": path.resolve(__dirname, "node_modules/lodash/lodash.js"),
+      "vue": path.resolve(__dirname, "node_modules/vue/dist/vue.esm-bundler.js"),
+      "vue-router": path.resolve(__dirname, "node_modules/vue-router/dist/vue-router.esm-bundler.js"),
+      "vuex": path.resolve(__dirname, "node_modules/vuex/dist/vuex.esm-bundler.js"),
+      "axios": path.resolve(__dirname, "node_modules/axios/dist/axios.js"),
     },
   },
   define: {
